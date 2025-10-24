@@ -50,6 +50,7 @@ g.add((ontology.AssociateProfessor, RDF.type, RDFS.Class))
 g.add((ontology.FullProfessor, RDF.type, RDFS.Class))
 g.add((ontology.InterimAssociateProfessor, RDF.type, RDFS.Class))
 
+
 #Relaciones
 g.add((ontology.Professor, RDFS.subClassOf, ontology.Person))
 g.add((ontology.AssociateProfessor, RDFS.subClassOf, ontology.Professor))
