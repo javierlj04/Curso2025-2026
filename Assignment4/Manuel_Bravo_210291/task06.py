@@ -74,24 +74,22 @@ r.validate_task_06_01(g)
 
 """**TASK 6.2: Add the 3 properties shown in slide 36. Add labels for each of them (exactly as they are in the slide, with no language tags), and their corresponding domains and ranges using RDFS. Remember adding the correct datatype (xsd:String) when appropriate. If a property has no range, make it a literal (string)**"""
 
-# Las 3 propiedades
 g.add((ontology.hasName, RDF.type, RDF.Property))
-g.add((ontology.hasHomePage, RDF.type, RDF.Property))
-g.add((ontology.hasColleague, RDF.type, RDF.Property))
-
-# Labels    *tipo string
 g.add((ontology.hasName, RDFS.label, Literal("hasName", datatype=XSD.string)))
-g.add((ontology.hasHomePage, RDFS.label, Literal("hasHomePage", datatype=XSD.string)))
-g.add((ontology.hasColleague, RDFS.label, Literal("hasColleague", datatype=XSD.string)))
-
-# Dominios
 g.add((ontology.hasName, RDFS.domain, ontology.Person))
 g.add((ontology.hasName, RDFS.range, RDFS.Literal))
 
-g.add((ontology.hasHomePage, RDFS.domain, ontology.FullProfessor))
 
+g.add((ontology.hasColleague, RDF.type, RDF.Property))
+g.add((ontology.hasColleague, RDFS.label, Literal("hasColleague", datatype=XSD.string)))
 g.add((ontology.hasColleague, RDFS.domain, ontology.Person))
 g.add((ontology.hasColleague, RDFS.range, ontology.Person))
+
+
+g.add((ontology.hasHomePage, RDF.type, RDF.Property))
+g.add((ontology.hasHomePage, RDFS.label, Literal("hasHomePage", datatype=XSD.string)))
+g.add((ontology.hasHomePage, RDFS.domain, ontology.FullProfessor))
+g.add((ontology.hasHomePage, RDFS.range, RDFS.Literal))
 
 
 # Visualize the results
@@ -109,11 +107,15 @@ g.add((person.Oscar, RDF.type, ontology.AssociateProfessor))
 g.add((person.Raul, RDF.type, ontology.InterimAssociateProfessor))
 
 # Que son y relaciones
+g.add((person.Asun, RDFS.label, Literal("Asun", datatype=XSD.string)))
 g.add((person.Asun, ontology.hasHomePage, Literal("http://www.oeg-upm.net/", datatype=XSD.string)))
 g.add((person.Asun, ontology.hasColleague, person.Raul))
 
+g.add((person.Oscar, RDFS.label, Literal("Oscar", datatype=XSD.string)))
 g.add((person.Oscar, ontology.hasName, Literal("Oscar Corcho García", datatype=XSD.string)))
 g.add((person.Oscar, ontology.hasColleague, person.Asun))
+
+g.add((person.Raul, RDFS.label, Literal("Raul", datatype=XSD.string)))
 
 
 # Visualize the results
