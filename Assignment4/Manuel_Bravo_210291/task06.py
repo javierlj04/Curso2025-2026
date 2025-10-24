@@ -33,8 +33,8 @@ for s, p, o in g:
 
 """**Task 6.0: Create new prefixes for "ontology" and "person" as shown in slide 14 of the Slidedeck 01a.RDF(s)-SPARQL shown in class.**"""
 
-ontology = Namespace("http://mydomain.org/ontology#")
-person = Namespace("http://mydomain.org/person#")
+ontology = Namespace("http://oeg.fi.upm.es/def/people#")
+person = Namespace("http://oeg.fi.upm.es/resource/person/")
 
 g.namespace_manager.bind('ontology', ontology, override=False)
 g.namespace_manager.bind('person', person, override=False)
