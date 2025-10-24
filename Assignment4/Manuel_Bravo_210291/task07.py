@@ -155,21 +155,17 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
 SELECT DISTINCT ?name
 WHERE {
-  ?x a :Person ;
-     rdfs:label ?name .
-
   {
-    ?x :hasColleague ?col .
-    ?col :ownsPet ?dog .
-    ?dog a :Animal .
+    ?person :hasColleague ?colleague .
+    ?colleague :ownsPet ?Animal .
   }
   UNION
   {
-    ?x :hasColleague ?col1 .
-    ?col1 :hasColleague ?col2 .
-    ?col2 :ownsPet ?dog2 .
-    ?dog2 a :Animal .
+    ?person :hasColleague ?colleague .
+    ?colleague :hasColleague ?colleague2 .
+    ?colleague2 :ownsPet ?Animal .
   }
+  ?person rdfs:label ?name .
 }
 """
 
